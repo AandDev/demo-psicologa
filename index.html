@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Demo con perfil ficticio: no indexar hasta tener datos reales -->
+    <meta name="robots" content="noindex" />
+    <title>
+      Mariana Ferreyra | Psicóloga en Palermo y online · Ansiedad y estrés
+    </title>
+    <meta
+      name="description"
+      content="Psicóloga con enfoque cognitivo-conductual. Trabajo con ansiedad, ataques de pánico, estrés y burnout. Atención presencial en Palermo (CABA) y online."
+    />
+    <meta name="theme-color" content="#f6f0e6" />
+    <!-- URL provisoria de Netlify: cambiar aquí, en og:url y en las imágenes cuando haya dominio -->
+    <link rel="canonical" href="https://demo-psicologa.netlify.app/" />
+
+    <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="Lic. Mariana Ferreyra · Psicóloga" />
+    <meta
+      property="og:title"
+      content="Mariana Ferreyra · Psicóloga en Palermo y online"
+    />
+    <meta
+      property="og:description"
+      content="Psicóloga con enfoque cognitivo-conductual. Trabajo con ansiedad, ataques de pánico, estrés y burnout. Atención presencial en Palermo (CABA) y online."
+    />
+    <meta property="og:url" content="https://demo-psicologa.netlify.app/" />
+    <!-- Imagen: assets/img/og-image.png, 1200 × 630 px (captura de og-image.html) -->
+    <meta
+      property="og:image"
+      content="https://demo-psicologa.netlify.app/assets/img/og-image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Lic. Mariana Ferreyra, psicóloga. Ansiedad, ataques de pánico y estrés. Palermo, CABA y online."
+    />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Mariana Ferreyra · Psicóloga en Palermo y online"
+    />
+    <meta
+      name="twitter:description"
+      content="Psicóloga con enfoque cognitivo-conductual. Trabajo con ansiedad, ataques de pánico, estrés y burnout. Atención presencial en Palermo (CABA) y online."
+    />
+    <meta
+      name="twitter:image"
+      content="https://demo-psicologa.netlify.app/assets/img/og-image.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Lic. Mariana Ferreyra, psicóloga. Ansiedad, ataques de pánico y estrés. Palermo, CABA y online."
+    />
+
+    <!-- Favicon: pegar los archivos en assets/icons/ con estos nombres -->
+    <link
+      rel="icon"
+      href="assets/icons/favicon-32x32.png"
+      type="image/png"
+      sizes="32x32"
+    />
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Young+Serif&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <a class="btn btn--primary skip-link" href="#inicio">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="logo" href="#inicio">
+          <span class="logo__name">Lic. Mariana Ferreyra</span>
+          <span class="logo__role">Psicóloga</span>
+        </a>
+        <!-- Oculto sin JS: js/main.js lo muestra y pliega el menú en móvil -->
+        <button
+          class="btn btn--secondary menu-toggle"
+          type="button"
+          aria-label="Menú"
+          aria-expanded="false"
+          aria-controls="menu"
+          hidden
+        >
+          <span class="menu-toggle__icon" aria-hidden="true"></span>
+        </button>
+        <nav class="site-nav" id="menu" aria-label="Principal">
+          <ul class="site-nav__list">
+            <li><a href="#con-que-trabajo">Con qué trabajo</a></li>
+            <li><a href="#como-trabajo">Cómo trabajo</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <a
+          class="btn btn--primary site-header__cta"
+          href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+          >Escribime</a
+        >
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__text">
+            <h1 id="hero-title">
+              Psicóloga para la ansiedad, los ataques de pánico y el estrés
+            </h1>
+            <p class="hero__lead">
+              Te acompaño con herramientas concretas para que puedas entender lo
+              que te pasa y sentirte mejor en tu día a día. Atiendo presencial
+              en Palermo y online, estés donde estés.
+            </p>
+            <a
+              class="btn btn--primary"
+              href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+              >Pedir una primera entrevista por WhatsApp</a
+            >
+            <p class="hero__meta">Terapia cognitivo-conductual · M.N. 00000</p>
+          </div>
+          <!-- Foto: assets/img/mariana-hero.webp, 900 × 1200 px (3:4). Ajustar el alt a la foto real. -->
+          <div class="photo photo--arch photo--hero">
+            <span class="photo__label" aria-hidden="true">Foto de Mariana</span>
+            <img
+              class="photo__img"
+              src="assets/img/mariana-hero.webp"
+              width="900"
+              height="1200"
+              alt="Mariana Ferreyra, psicóloga, sonriendo en un espacio con luz natural."
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="con-que-trabajo"
+        aria-labelledby="con-que-trabajo-title"
+      >
+        <div class="container">
+          <p class="eyebrow">Con qué trabajo</p>
+          <h2 id="con-que-trabajo-title">Con qué te puedo ayudar</h2>
+          <p class="section__intro">
+            Trabajo con adultos que sienten que algo los está desbordando.
+          </p>
+          <ul class="cards">
+            <li class="card">
+              <h3>Ansiedad</h3>
+              <p>
+                Preocupación que no se apaga, tensión en el cuerpo, la cabeza
+                que no para. Vamos a ver de dónde viene y cómo manejarla.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Ataques de pánico</h3>
+              <p>
+                Si alguna vez sentiste que te faltaba el aire o que te pasaba
+                algo grave, sé lo que asusta. Se pueden entender y se pueden
+                manejar.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Estrés</h3>
+              <p>
+                Cuando las exigencias superan lo que podés sostener y aparecen
+                el cansancio, la irritabilidad o los problemas para dormir.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Burnout</h3>
+              <p>
+                El agotamiento que viene del trabajo: no tener energía, sentir
+                que nada alcanza, no poder desconectar.
+              </p>
+            </li>
+          </ul>
+          <p class="note">
+            No atiendo niños ni parejas. Si es lo que buscás, escribime igual y
+            te recomiendo a un colega.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section band"
+        id="como-trabajo"
+        aria-labelledby="como-trabajo-title"
+      >
+        <div class="container">
+          <p class="eyebrow">Cómo trabajo</p>
+          <h2 id="como-trabajo-title">Cómo trabajo</h2>
+          <div class="split">
+            <div>
+              <h3>Terapia cognitivo-conductual</h3>
+              <p>
+                Trabajo desde la terapia cognitivo-conductual. Es un enfoque
+                práctico: además de hablar de lo que te pasa, vamos a ver cómo
+                se relacionan lo que pensás, lo que sentís y lo que hacés, y a
+                trabajar con herramientas concretas que podés usar en tu vida
+                cotidiana. Tiene objetivos claros y suele durar menos de lo que
+                la gente imagina.
+              </p>
+            </div>
+            <div>
+              <h3>La primera entrevista</h3>
+              <p>
+                En la primera entrevista nos conocemos. Me contás qué te trae a
+                consulta, con tus palabras y a tu ritmo. No hace falta que
+                tengas nada preparado ni que sepas por dónde empezar: para eso
+                estoy yo. Al final vemos juntos si este es el espacio indicado
+                para lo que necesitás.
+              </p>
+            </div>
+          </div>
+          <h3 class="modes__title">Modalidades</h3>
+          <ul class="modes">
+            <li class="mode">
+              <h4>Presencial</h4>
+              <p>
+                En mi consultorio de Palermo, CABA, los martes y jueves. La
+                dirección exacta te la paso al confirmar el turno.
+              </p>
+            </li>
+            <li class="mode">
+              <h4>Online</h4>
+              <p>
+                Por videollamada (Google Meet), desde cualquier lugar del país o
+                del mundo.
+              </p>
+            </li>
+          </ul>
+          <a
+            class="btn btn--primary section__action"
+            href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+            >Consultar por WhatsApp</a
+          >
+        </div>
+      </section>
+
+      <section class="section" id="sobre-mi" aria-labelledby="sobre-mi-title">
+        <div class="container about">
+          <!-- Foto: assets/img/mariana-sobre-mi.webp, 720 × 960 px (3:4). Ajustar el alt a la foto real. -->
+          <div class="photo photo--arch photo--about">
+            <span class="photo__label" aria-hidden="true">Foto de Mariana</span>
+            <img
+              class="photo__img"
+              src="assets/img/mariana-sobre-mi.webp"
+              width="720"
+              height="960"
+              alt="Retrato de Mariana Ferreyra."
+              loading="lazy"
+            />
+          </div>
+          <div class="about__text">
+            <p class="eyebrow">Sobre mí</p>
+            <h2 id="sobre-mi-title">Sobre mí</h2>
+            <p>
+              Soy Mariana Ferreyra, psicóloga. Me recibí en la Universidad de
+              Buenos Aires y me especialicé en terapia cognitivo-conductual con
+              un posgrado en la Fundación Aiglé.
+            </p>
+            <p>
+              Hace ocho años que trabajo en clínica: primero en una institución
+              y, desde hace tres, en mi consultorio. Acompaño a adultos que
+              atraviesan momentos de ansiedad, estrés o agotamiento, muchas
+              veces vinculados con el trabajo.
+            </p>
+            <p>
+              Elegí la terapia cognitivo-conductual porque me gusta que cada
+              persona se vaya de la sesión con algo concreto para usar en su
+              semana. Creo en una terapia clara, donde sepas en qué estamos
+              trabajando y para qué.
+            </p>
+            <ul class="credentials">
+              <li>Licenciada en Psicología, Universidad de Buenos Aires.</li>
+              <li>
+                Posgrado en terapia cognitivo-conductual, Fundación Aiglé.
+              </li>
+              <li>Matrícula Nacional 00000.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonios: sección condicionada a la respuesta del Colegio de Psicólogos.
+         Si se permite, va aquí con mensajes reales, anónimos y con consentimiento
+         (título: "Lo que cuentan quienes pasaron por consulta"). No se inventan
+         testimonios, ni siquiera para la demo. Si no se permite, se borra este comentario. -->
+
+      <section
+        class="section band"
+        id="preguntas"
+        aria-labelledby="preguntas-title"
+      >
+        <div class="container">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2 id="preguntas-title">Preguntas frecuentes</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>¿Atendés por obra social o prepaga?</summary>
+              <p>
+                No atiendo por obra social ni prepaga, pero te doy factura por
+                cada sesión para que pidas el reintegro, si tu plan lo cubre. Te
+                recomiendo consultar antes con tu prepaga cuánto te reintegran.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>¿Cuánto sale la sesión?</summary>
+              <p>
+                <a
+                  href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+                  >Escribime por WhatsApp</a
+                >
+                y te paso los honorarios actualizados.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>¿Cuánto dura el tratamiento?</summary>
+              <p>
+                Depende de cada persona y de lo que la trae a consulta. La
+                terapia cognitivo-conductual trabaja con objetivos concretos y
+                suele ser más breve de lo que la gente imagina. Como referencia,
+                muchos tratamientos por ansiedad o ataques de pánico duran
+                algunos meses. En la primera entrevista lo podemos charlar.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>¿Cuánto dura cada sesión y con qué frecuencia?</summary>
+              <p>
+                Cada sesión dura 50 minutos. Al principio nos vemos una vez por
+                semana; más adelante, si el proceso lo permite, podemos espaciar
+                los encuentros.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>
+                ¿La terapia online funciona igual que la presencial?
+              </summary>
+              <p>
+                Sí. Trabajamos de la misma manera y con las mismas herramientas.
+                Solo necesitás un lugar tranquilo donde puedas hablar con
+                privacidad y una buena conexión. Muchas personas la eligen
+                porque les ahorra traslados y les permite sostener el
+                tratamiento aunque viajen o se muden.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>¿Cómo es la primera sesión? No sé qué contar.</summary>
+              <p>
+                Es muy común sentir eso, y está bien. No hace falta que traigas
+                nada preparado. En la primera entrevista te voy a hacer algunas
+                preguntas para conocerte y entender qué te pasa. Vas a contar lo
+                que quieras, a tu ritmo.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>
+                Vivo fuera de Argentina, ¿puedo hacer terapia con vos?
+              </summary>
+              <p>
+                Sí. Atiendo online a argentinos y argentinas que viven en otros
+                países. Coordinamos un horario que te quede cómodo según tu huso
+                horario. Los medios de pago desde el exterior te los paso por
+                WhatsApp.
+              </p>
+            </details>
+            <details class="faq__item">
+              <summary>¿Atendés niños o parejas?</summary>
+              <p>
+                No, trabajo solo con adultos en terapia individual. Si es lo que
+                buscás, escribime y te recomiendo a un colega.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto" aria-labelledby="contacto-title">
+        <div class="container">
+          <div class="contact">
+            <p class="eyebrow">Contacto</p>
+            <h2 id="contacto-title">¿Querés empezar?</h2>
+            <p>
+              Escribime por WhatsApp y coordinamos una primera entrevista. Te
+              respondo dentro del mismo día hábil.
+            </p>
+            <a
+              class="btn btn--primary"
+              href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+              >Escribime por WhatsApp</a
+            >
+            <p class="contact__places">
+              Presencial: Palermo, CABA · Online: desde cualquier lugar
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer band">
+      <div class="container">
+        <div class="site-footer__main">
+          <div class="site-footer__about">
+            <p class="site-footer__name">
+              Lic. Mariana Ferreyra · Psicóloga · M.N. 00000
+            </p>
+            <p class="site-footer__urgent">
+              Este espacio no es un servicio de urgencias. Si estás en una
+              situación de crisis, llamá al <a href="tel:135">135</a> (Centro de
+              Asistencia al Suicida, gratuito desde CABA y GBA), al
+              <a href="tel:+541152751135">(011) 5275-1135</a> desde todo el
+              país, o al <a href="tel:911">911</a>.
+            </p>
+          </div>
+          <ul class="site-footer__contact">
+            <li>
+              <svg
+                class="site-footer__icon"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+              <span>Palermo, CABA y online</span>
+            </li>
+            <li>
+              <svg
+                class="site-footer__icon"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  fill="currentColor"
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
+                />
+              </svg>
+              <a
+                href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+                >WhatsApp: +54 9 11 0000-0000</a
+              >
+            </li>
+            <li>
+              <svg
+                class="site-footer__icon"
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+              <!-- Reemplazar por la URL de la cuenta real de Mariana -->
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="site-footer__legal">
+          <p>Sitio de demostración. Mariana Ferreyra es un perfil ficticio.</p>
+          <p>© 2026 Mariana Ferreyra</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp: solo en móvil, reemplaza a "Escribime" del header -->
+    <a
+      class="whatsapp-float"
+      href="https://wa.me/5491100000000?text=Hola%20Mariana%2C%20te%20escribo%20desde%20la%20web.%20Quer%C3%ADa%20consultar%20por%20una%20primera%20entrevista."
+      aria-label="Escribime por WhatsApp"
+    >
+      <svg
+        class="whatsapp-float__icon"
+        viewBox="0 0 24 24"
+        width="28"
+        height="28"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path
+          fill="currentColor"
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,940 @@
+/* ==========================================================================
+   Lic. Mariana Ferreyra · Landing (proyecto conceptual)
+   Dirección D · Arco y barro: cálida, tranquila y seria.
+   Orden: tokens, base, botones, layout y secciones de la página.
+   ========================================================================== */
+
+:root {
+  /* Colores (contraste calculado sobre --color-bg) */
+  --color-bg: #f6f0e6;            /* papel crema */
+  --color-surface: #ece3d3;       /* arena: bandas y tarjetas */
+  --color-surface-hover: #f1e9dc; /* tarjeta en hover (texto 11.82:1, secundario 6.06:1) */
+  --color-text: #2e2a25;          /* 12.57:1 (11.19:1 sobre superficie) */
+  --color-text-muted: #5e554b;    /* 6.44:1 (5.73:1 sobre superficie) */
+  --color-accent: #a4492d;        /* terracota, 5.19:1 (4.62:1 sobre superficie); también puntos y marcos */
+  --color-accent-hover: #8a3c25;  /* texto de botón 7.24:1 */
+  --color-on-accent: #fff8f0;     /* texto de botón, 5.59:1 sobre acento */
+
+  /* Tipografías */
+  --font-display: "Young Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-body: 1.65;
+
+  /* Escala tipográfica (mobile-first; los títulos crecen con clamp) */
+  --text-sm: 1rem;
+  --text-base: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.375rem, 1.25rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.8vw, 2.625rem);
+  --text-4xl: clamp(2.25rem, 1.7rem + 2.8vw, 3.375rem);
+
+  /* Espaciados (algo más generosos: "que pueda respirar") */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3.5rem;
+  --space-8: 5rem;
+  --space-9: 8rem;
+
+  /* Radios: suaves, como piezas de cerámica */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem; /* botones, FAQ, base del arco */
+  --radius-lg: 1rem;    /* tarjetas y paneles */
+  --radius-arch: 50rem 50rem var(--radius-md) var(--radius-md);
+
+  /* Medidas */
+  --measure: 60ch;
+  --container: 70rem;
+
+  /* Movimiento */
+  --duration: 300ms;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Deja lugar al header sticky al saltar a una ancla (en el celular ocupa dos filas) */
+  scroll-padding-top: 8.5rem;
+}
+
+@media (min-width: 60rem) {
+  html {
+    scroll-padding-top: 6rem;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Young Serif tiene un solo peso (400): la jerarquía sale del tamaño y el aire */
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-4xl);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+
+h4 {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+p,
+ul,
+ol {
+  max-width: var(--measure);
+  margin: 0 0 var(--space-4);
+  text-wrap: pretty;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* Botones
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn--secondary {
+  border-color: var(--color-accent);
+  background-color: transparent;
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+/* Movimiento: solo si la persona no pidió reducirlo */
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    transition: text-decoration-thickness var(--duration) var(--ease);
+  }
+
+  .btn {
+    transition:
+      background-color var(--duration) var(--ease),
+      color var(--duration) var(--ease),
+      border-color var(--duration) var(--ease);
+  }
+}
+
+/* Layout
+   ========================================================================== */
+
+.container {
+  width: min(100% - 2 * var(--space-5), var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-8);
+}
+
+.section__intro {
+  font-size: var(--text-lg);
+}
+
+/* Bandas arena en lugar de líneas divisorias */
+.band {
+  background-color: var(--color-surface);
+}
+
+/* Etiquetas de sección con un punto terracota */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+/* Enlace para saltar al contenido: fuera de pantalla hasta recibir foco */
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 20;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Header
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-bg);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  padding-block: var(--space-3);
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-text);
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.logo__name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.logo__role {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* En móvil "Escribime" se reemplaza por el botón flotante de WhatsApp */
+.site-header__cta {
+  display: none;
+  min-height: 2.75rem;
+  padding-inline: var(--space-5);
+}
+
+/* En el celular el menú pasa a una fila con scroll horizontal (sin JS).
+   El padding de la lista evita que el contenedor con scroll recorte el
+   contorno de foco; el margen negativo compensa ese padding. */
+.site-nav {
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * var(--space-2));
+  overflow-x: auto;
+}
+
+.site-nav__list {
+  display: flex;
+  gap: var(--space-5);
+  max-width: none;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  white-space: nowrap;
+}
+
+.site-nav a {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  text-decoration-color: transparent;
+}
+
+.site-nav a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+/* Menú plegable (hamburguesa): solo cuando js/main.js marca el header
+   con --enhanced. Abre y cierra sin animación, a pedido del brief. */
+.menu-toggle {
+  min-height: 2.75rem;
+  padding-inline: var(--space-4);
+}
+
+/* .btn define display, que si no pisaría el atributo hidden (sin JS) */
+.menu-toggle[hidden] {
+  display: none;
+}
+
+.menu-toggle__icon,
+.menu-toggle__icon::before,
+.menu-toggle__icon::after {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+}
+
+.menu-toggle__icon {
+  position: relative;
+}
+
+.menu-toggle__icon::before,
+.menu-toggle__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-toggle__icon::before {
+  top: -0.375rem;
+}
+
+.menu-toggle__icon::after {
+  top: 0.375rem;
+}
+
+/* Abierto: las tres líneas pasan a una cruz */
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon {
+  background-color: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon::before {
+  top: 0;
+  background-color: currentColor;
+  transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__icon::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* El panel se superpone al contenido debajo del header, a todo el ancho.
+   Cerrado usa visibility: hidden, que además lo saca del orden de Tab. */
+.site-header--enhanced .site-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  max-height: calc(100dvh - 5rem);
+  margin: 0;
+  overflow-y: auto;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  background-color: var(--color-surface);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+}
+
+.site-header--enhanced .site-nav--open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+/* Con el menú abierto, la barra toma el mismo arena y forma un bloque con el panel */
+.site-header:has(.site-nav--open) {
+  background-color: var(--color-surface);
+}
+
+.site-header--enhanced .site-nav__list {
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-2) var(--space-5) var(--space-5);
+  white-space: normal;
+}
+
+/* Despliegue sutil: fundido y un leve deslizamiento hacia abajo */
+@media (prefers-reduced-motion: no-preference) {
+  .site-header {
+    transition: background-color 200ms var(--ease);
+  }
+
+  .site-header--enhanced .site-nav {
+    transition:
+      opacity 200ms var(--ease),
+      transform 200ms var(--ease),
+      visibility 200ms;
+  }
+}
+
+/* Cada enlace con al menos 44 px de alto para tocarlo cómodo */
+.site-header--enhanced .site-nav a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-size: var(--text-base);
+}
+
+/* Con JS el header ocupa una sola fila al navegar: menos margen para las anclas */
+html:has(.site-header--enhanced) {
+  scroll-padding-top: 6rem;
+}
+
+@media (min-width: 60rem) {
+  .site-header__inner {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .site-header__cta {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    grid-column: auto;
+    justify-self: end;
+  }
+
+  .site-header--enhanced .site-nav {
+    position: static;
+    max-height: none;
+    margin-inline: calc(-1 * var(--space-2));
+    overflow: visible;
+    border-radius: 0;
+    background-color: transparent;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .site-header--enhanced .site-nav__list {
+    flex-direction: row;
+    gap: var(--space-5);
+    padding: var(--space-2);
+    white-space: nowrap;
+  }
+
+  .site-header--enhanced .site-nav a {
+    display: inline;
+    min-height: 0;
+    font-size: var(--text-sm);
+  }
+
+  .site-header--enhanced .menu-toggle {
+    display: none;
+  }
+}
+
+/* Botón flotante de WhatsApp (solo móvil)
+   ========================================================================== */
+
+/* Fijo en la esquina: sigue al usuario sin aparecer ni desaparecer */
+.whatsapp-float {
+  position: fixed;
+  right: var(--space-4);
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0rem));
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.whatsapp-float:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.whatsapp-float:focus-visible {
+  border-radius: 50%;
+}
+
+@media (min-width: 60rem) {
+  .whatsapp-float {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .whatsapp-float {
+    transition: background-color var(--duration) var(--ease);
+  }
+}
+
+/* Hero
+   ========================================================================== */
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.hero__lead {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-lg);
+}
+
+.hero__meta {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 48rem) {
+  .hero__inner {
+    grid-template-columns: 6fr 5fr;
+    align-items: center;
+    padding-block: var(--space-8) var(--space-9);
+  }
+}
+
+/* Fotos en arco
+   ========================================================================== */
+
+/* Rasgo distintivo: foto en arco con marco terracota desplazado.
+   El marco se dibuja con dos sombras (sin elementos extra): la primera,
+   del color del fondo, tapa el interior de la segunda y deja solo un filete.
+   Por eso la foto siempre va sobre --color-bg, nunca sobre una banda. */
+.photo {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--space-6);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+/* La foto cubre todo el arco; el recorte sale del mismo radio del contenedor */
+.photo__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.photo--arch {
+  border-radius: var(--radius-arch);
+  box-shadow:
+    0.75rem 0.75rem 0 -1px var(--color-bg),
+    0.75rem 0.75rem 0 0 var(--color-accent);
+}
+
+.photo--hero {
+  width: min(100%, 26rem);
+  aspect-ratio: 3 / 4;
+  justify-self: center;
+}
+
+.photo__label {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* Fundido suave de las fotos al cargar, solo sin reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .photo {
+    animation: fade-in 500ms var(--ease) both;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+/* Con qué trabajo: tarjetas
+   ========================================================================== */
+
+/* Las tarjetas son arena: la sección va sobre crema para que se distingan */
+.cards {
+  display: grid;
+  gap: var(--space-4);
+  max-width: none;
+  margin-block: var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+
+.card:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.card p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+.note {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    transition: background-color var(--duration) var(--ease);
+  }
+}
+
+/* Cómo trabajo: dos columnas y modalidades
+   ========================================================================== */
+
+.split,
+.modes {
+  display: grid;
+  gap: var(--space-5) var(--space-7);
+}
+
+.split {
+  margin-top: var(--space-6);
+}
+
+.modes__title {
+  margin-top: var(--space-7);
+}
+
+/* Sobre la banda arena, las modalidades van en tarjetas crema */
+.modes {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mode {
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg);
+}
+
+.mode p {
+  margin-bottom: 0;
+}
+
+/* Botón de cierre de sección, separado del bloque anterior */
+.section__action {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 48rem) {
+  .split,
+  .modes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Sobre mí: foto en arco y formación
+   ========================================================================== */
+
+/* Va sobre crema: el marco del arco necesita --color-bg */
+.about {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.photo--about {
+  width: min(100%, 20rem);
+  aspect-ratio: 3 / 4;
+  justify-self: center;
+}
+
+.credentials {
+  margin-top: var(--space-5);
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.credentials li {
+  position: relative;
+  padding: var(--space-1) 0 var(--space-1) var(--space-5);
+}
+
+.credentials li::before {
+  content: "";
+  position: absolute;
+  top: 0.8em;
+  left: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+@media (min-width: 48rem) {
+  .about {
+    grid-template-columns: 4fr 7fr;
+    align-items: center;
+  }
+}
+
+/* Preguntas frecuentes: <details> nativo, funciona sin JS
+   ========================================================================== */
+
+.faq {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.faq__item {
+  padding-inline: var(--space-5);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+}
+
+.faq__item summary {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* El signo es decorativo: "/ ''" evita que el lector de pantalla lo lea
+   (la primera línea queda como respaldo para navegadores viejos) */
+.faq__item summary::after {
+  content: "+";
+  content: "+" / "";
+  color: var(--color-accent);
+  font-size: var(--text-lg);
+  line-height: 1;
+}
+
+.faq__item[open] summary::after {
+  content: "–";
+  content: "–" / "";
+}
+
+.faq__item p {
+  max-width: none;
+  padding-bottom: var(--space-4);
+}
+
+/* Apertura y cierre suaves, solo con CSS (::details-content + interpolate-size).
+   En navegadores sin soporte, la respuesta se abre al instante: funciona igual. */
+@media (prefers-reduced-motion: no-preference) {
+  .faq {
+    interpolate-size: allow-keywords;
+  }
+
+  .faq__item::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    opacity: 0;
+    transition:
+      block-size 250ms var(--ease),
+      opacity 250ms var(--ease),
+      content-visibility 250ms allow-discrete;
+  }
+
+  .faq__item[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
+/* Contacto: caja arena sobre crema
+   ========================================================================== */
+
+.contact {
+  padding: var(--space-7) var(--space-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+}
+
+.contact__places {
+  margin-top: var(--space-5);
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 48rem) {
+  .contact {
+    padding-inline: var(--space-8);
+  }
+}
+
+/* Footer
+   ========================================================================== */
+
+/* En móvil, el padding inferior (4rem) deja espacio para el botón flotante de
+   WhatsApp. El © es corto y queda a la izquierda, así que el botón no lo tapa */
+.site-footer {
+  padding-block: var(--space-7) calc(3.5rem + var(--space-2));
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 60rem) {
+  .site-footer {
+    padding-bottom: var(--space-7);
+  }
+}
+
+.site-footer__name {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+/* El footer va en banda arena: el aviso de urgencias se destaca en crema,
+   igual que las tarjetas sobre banda (modalidades, FAQ) */
+.site-footer__urgent {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Primera fila: en móvil todo apilado; desde 48rem, dos columnas */
+.site-footer__main {
+  display: grid;
+  gap: var(--space-6) var(--space-7);
+}
+
+.site-footer__urgent {
+  margin-bottom: 0;
+}
+
+/* Datos de contacto con ícono terracota (decorativo: el texto ya dice qué es) */
+.site-footer__contact {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__contact li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-footer__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-accent);
+}
+
+/* Segunda fila: avisos legales en una columna */
+.site-footer__legal {
+  margin-top: var(--space-7);
+}
+
+.site-footer__legal p {
+  margin-bottom: var(--space-2);
+}
+
+.site-footer__legal p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  .site-footer__main {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+  }
+}

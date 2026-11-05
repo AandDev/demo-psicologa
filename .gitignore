@@ -3,8 +3,12 @@ CLAUDE.md
 CLAUDE.local.md
 .claude/
 
-# Notas internas de trabajo
-docs/backlog.md
+# Documentación interna (brief, contenidos, checklists, backlog): no se publica
+docs/
+
+# Generador de la imagen para compartir (solo para capturar og-image.png)
+og-image.html
+css/og-image.css
 
 # Styleguides de direcciones visuales (referencia interna, no se publica)
 direcciones/
