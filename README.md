@@ -39,5 +39,5 @@ divisorias. Todos los contrastes cumplen WCAG AA y las animaciones respetan
 ## Publicación
 
 Sitio estático en Netlify. La URL provisoria
-(`https://demo-psicologa.netlify.app/`) figura en `canonical`, `og:url` y en las
+(`https://demo-web-psicologa.netlify.app/`) figura en `canonical`, `og:url` y en las
 imágenes de Open Graph y Twitter. Hay que cambiarla cuando haya dominio propio.
