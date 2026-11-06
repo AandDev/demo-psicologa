@@ -43,9 +43,9 @@
   --space-9: 8rem;
 
   /* Radios: suaves, como piezas de cerámica */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem; /* botones, FAQ, base del arco */
-  --radius-lg: 1rem;    /* tarjetas y paneles */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem; /* botones, FAQ, base del arco */
+  --radius-lg: 0.5rem;   /* tarjetas y paneles */
   --radius-arch: 50rem 50rem var(--radius-md) var(--radius-md);
 
   /* Medidas */
